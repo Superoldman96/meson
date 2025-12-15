@@ -843,7 +843,7 @@ class Interpreter(InterpreterBase, HoldableObject):
                     a = os.path.join(srcdir, self.subdir, a)
             self.add_build_def_file(a)
 
-        return RunProcess(cmd, expanded_args, env, srcdir, builddir, self.subdir,
+        return RunProcess(cmd, expanded_args, env, srcdir, builddir, self.relative_builddir_path_for(self.subdir),
                           self.environment.get_build_command() + ['introspect'],
                           in_builddir=in_builddir, check=check, capture=capture)
 
